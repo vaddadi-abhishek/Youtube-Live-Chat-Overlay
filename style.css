@@ -8,11 +8,8 @@
     z-index: 9998;
     border-radius: 12px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.2); /* slight background tint */
-    backdrop-filter: blur(10px); /* glassy effect */
-    -webkit-backdrop-filter: blur(10px);
+    background: #000; /* Solid black background */
     pointer-events: auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
     resize: both;
     min-width: 300px;
     min-height: 200px;
@@ -23,39 +20,5 @@
     width: 100%;
     height: 100%;
     border: none;
-    background: transparent !important;
-    pointer-events: auto;
-    opacity: 0.95; /* slight transparency illusion */
-}
-
-
-#yt-live-chat-overlay ytd-live-chat-frame {
-    /* Ensure chat fills container */
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important;
-}
-
-#yt-live-chat-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-    z-index: 1;
-    pointer-events: none;
-}
-
-#yt-live-chat-overlay::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
-    z-index: 1;
-    pointer-events: none;
+    background: #000;
 }

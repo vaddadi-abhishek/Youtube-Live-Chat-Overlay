@@ -28,40 +28,26 @@ function createChatOverlay() {
         zIndex: "9998",
         borderRadius: "12px",
         overflow: "hidden",
-        backgroundColor: "transparent",
+        backgroundColor: "#000", // solid background to match dark theme
         pointerEvents: "auto",
+        boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
     });
 
-    // Create new iframe for chat overlay using the YouTube live chat embed URL
     const chatIframe = document.createElement("iframe");
     chatIframe.src = `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${location.hostname}`;
     Object.assign(chatIframe.style, {
         width: "100%",
         height: "100%",
         border: "none",
-        backgroundColor: "transparent",
+        backgroundColor: "#000",
     });
 
     chatOverlay.appendChild(chatIframe);
-
-    // Optional: fade overlay at the top
-    const fadeTop = document.createElement("div");
-    Object.assign(fadeTop.style, {
-        position: "absolute",
-        top: "0",
-        left: "0",
-        right: "0",
-        height: "40px",
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)",
-        zIndex: "2",
-        pointerEvents: "none"
-    });
-    chatOverlay.appendChild(fadeTop);
-
     document.body.appendChild(chatOverlay);
     chatOverlayVisible = true;
     console.log("Overlay with embedded chat iframe created.");
 }
+
 
 function removeChatOverlay() {
     if (!chatOverlayVisible || !chatOverlay) return;
@@ -76,10 +62,10 @@ function removeChatOverlay() {
 function toggleOverlay() {
     if (chatOverlayVisible) {
         removeChatOverlay();
-        updateButtonText("💬 Show Chat");
+        updateButtonText("Show Chat");
     } else {
         createChatOverlay();
-        updateButtonText("❌ Hide Chat");
+        updateButtonText("Hide Chat");
     }
 }
 
@@ -135,7 +121,6 @@ function handleFullscreenChange() {
         updateButtonText("💬 Show Chat");
     }
 }
-
 
 // Set up event listeners
 ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange'].forEach(event => {
