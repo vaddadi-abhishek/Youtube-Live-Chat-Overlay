@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Live Chat Overlay",
+  "version": "1.0",
+  "description": "Overlay YouTube live chat in full-screen like Twitch.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["*://www.youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
